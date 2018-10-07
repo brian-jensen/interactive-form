@@ -149,6 +149,35 @@ button:hover {
   clear: both;
 }
 
+input:disabled {
+	cursor: not-allowed;
+}
+
+.black {
+	color: #000;
+}
+
+.selected, .total, .dollar  {
+	color: #193a17;
+	text-shadow: 1px 1px 1px rgba(66, 125, 151, .8);
+	font-weight: 500;
+}
+
+.disabled {
+	color: rgba(255, 255, 255, 0.2);
+}
+
+.warning {
+	position: relative;
+	display: inline-block;
+	left: 5px;
+	top: 3px;
+	width: 1em;
+	height: 1em;
+	background: url(../images/warning.svg) no-repeat;
+	/* color: yellow; */
+}
+
 /* ================================= 
   Media Queries
 ==================================== */
