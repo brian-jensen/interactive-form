@@ -157,6 +157,31 @@ input:disabled {
 	color: #000;
 }
 
+.activities-legend-span,
+.name-label-span,
+.email-label-span,
+.cc-label-span,
+.zip-label-span,
+.cvv-label-span,
+.expiration-year-span,
+.expiration-month-span,
+.shirt-legend-span {
+	position: relative;
+	font-size: 0.7rem;
+	bottom: 1px;
+}
+
+.register-span, {
+	position: relative;
+	font-size: 0.9rem;
+	bottom: 2px;
+}
+
+.activities-legend-span,
+.shirt-legend-span {
+	bottom: 2px;
+}
+
 .selected, .total, .dollar  {
 	color: #193a17;
 	text-shadow: 1px 1px 1px rgba(66, 125, 151, .8);
@@ -175,8 +200,24 @@ input:disabled {
 	width: 1em;
 	height: 1em;
 	background: url(../images/warning.svg) no-repeat;
-	/* color: yellow; */
 }
+
+.error {
+	color: #be0000;
+}
+
+.error-place::placeholder {
+	font-size: .8em;
+	font-weight: 400;
+	font-style: italic;
+	color: #be0000;
+}
+
+.error-border {
+	border: 2px solid #be0000;
+	transition: border-color .4s;
+}
+
 
 /* ================================= 
   Media Queries
