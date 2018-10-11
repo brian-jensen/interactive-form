@@ -49,7 +49,7 @@ $nameInput.focus();
 $paymentSelect.children().first().remove();
 $activities.append(`<p class="black">Total: <span class="dollar">$<span><span class="total">0</span></p>`);
 $activitiesLegend.append(`<span class="activities-legend-span error"> - please select at least <em>one</em> activity<span>`);
-$nameLabel.append(`<span class="name-label-span error"> - please enter your first and last name.<span>`);
+$nameLabel.append(`<span class="name-label-span error"> - please enter your name.<span>`);
 $emailLabel.append(`<span class="email-label-span error"> - please enter a valid email address</span>`);
 $shirtLegend.append(`<span class="shirt-legend-span error"> - please select a shirt design theme</span>`);
 $creditCardLabel.append(`<span class="cc-label-span error"> - must be 13 to 16 digits</span>`);
@@ -228,8 +228,8 @@ $designSelect.on('change', function () {
 
 // Listens for focus out event on input fields that are visible.
 $nameInput.on('focusout', function () {
-  const message = 'Please enter your first and last name.';
-  const conditional = $(this).val() === '' || $(this).val().indexOf(' ') === -1;
+  const message = 'Please enter your name.';
+  const conditional = $(this).val() === '';
   inputFocusValidation($(this), message, conditional);
 });
 
@@ -274,7 +274,7 @@ const inputKeyValidation = (item, conditional) => {
 
 // Listens for when the user presses then releases a key on the keyboard.
 $nameInput.on('keyup', function () {
-  const conditional = $(this).val().indexOf(' ') === -1;
+  const conditional = $(this).val() === '';
   inputKeyValidation($(this), conditional);
 });
 
@@ -323,6 +323,12 @@ const dateValidation = () => {
     $expirationMonthSpan.show();
   } else {
     $expirationYearSpan.show();
+  }
+
+  if ($error.is(':visible')) {
+    $registerSpan.show();
+  } else {
+    $registerSpan.hide();
   }
 
 };
@@ -384,14 +390,14 @@ $register.on('click', function (event) {
   event.preventDefault();
   submitValidation();
   dateValidation();
-  // If no errors are found on the page, submits form and displays "Registration Submitted!" message for 4 seconds then refreshes browser.
+  // If no errors are found on the page, submits form and displays "Registration Submitted!" message for 2 seconds then refreshes browser.
   if ($registerSpan.is(':hidden')) {
     $register.prop('disabled', true);
     $register.text('Registration Submitted!');
     $register.css('background-color', '#69c773');
     setTimeout(function () {
       window.location.reload(true);
-    }, 4000);
+    }, 2000);
   }
 });
 
